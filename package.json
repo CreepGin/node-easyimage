@@ -1,6 +1,6 @@
 {
 	"name": "easyimage-tmpfix",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"description": "A user-friendly module for processing images in Node.js. Added png flatten and fixed cropping error.",
 	"main": "easyimage.js",
 	"author": "Hack Sparrow <captain@hacksparrow.com>",
