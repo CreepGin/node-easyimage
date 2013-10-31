@@ -59,8 +59,8 @@ exports.convert = function(options, callback) {
 	if (options.src === undefined || options.dst === undefined)return callback(error_messages['path']);
 	options.src = quoted_name(options.src);
 	options.dst = quoted_name(options.dst);
-	if (options.quality === undefined) imcmd = 'convert ' + options.src + ' ' + options.dst;
-	else imcmd = 'convert ' + options.src + ' -quality ' + options.quality + ' ' + options.dst;
+	if (options.quality === undefined) imcmd = 'convert ' + options.src + ' -background white -flatten ' + options.dst;
+	else imcmd = 'convert ' + options.src + ' -background white -flatten -quality ' + options.quality + ' ' + options.dst;
 	child = exec(imcmd, function(err, stdout, stderr) {
 		if (err) return callback(err);
 		info(options.dst, callback);
