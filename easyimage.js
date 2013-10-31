@@ -147,8 +147,13 @@ exports.thumbnail = function(options, callback) {
 		var resizewidth = options.width;
 		var resizeheight = options.height;
 
-		if (original.width > original.height) { resizewidth = ''; }
-		else if (original.height > original.width) { resizeheight = ''; }
+		r1 = original.width / original.height;
+		r2 = resizewidth / resizeheight;
+
+		if (r1 > r2)
+			resizewidth = '';
+		else
+			resizeheight = '';
 
 		// resize and crop
 		if (options.quality === undefined) imcmd = 'convert ' + options.src + ' -resize ' + resizewidth + 'x' + resizeheight + ' -gravity ' + options.gravity + ' -crop '+ options.width + 'x'+ options.height + '+' + options.x + '+' + options.y + ' ' + options.dst;
